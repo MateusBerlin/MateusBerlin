@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natureza Viva</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --green-dark: #1a3a2a;
+      --green-mid: #2d6a4f;
+      --green-light: #52b788;
+      --green-pale: #b7e4c7;
+      --earth: #a47c48;
+      --sky: #caf0f8;
+      --white: #f8fff9;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background-color: var(--white);
+      color: var(--green-dark);
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(26, 58, 42, 0.92);
+      backdrop-filter: blur(6px);
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+    }
+
+    nav .logo {
+      font-size: 1.4rem;
+      color: var(--green-pale);
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul a {
+      color: var(--green-pale);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    nav ul a:hover {
+      color: var(--green-light);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #0d2b1a 0%, #1a4a30 40%, #2d7a50 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 80%, rgba(82, 183, 136, 0.15) 0%, transparent 70%);
+    }
+
+    .hero-tag {
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      color: var(--green-light);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      color: #ffffff;
+      line-height: 1.1;
+      max-width: 800px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+
+    .hero h1 span {
+      color: var(--green-light);
+    }
+
+    .hero p {
+      margin-top: 1.5rem;
+      max-width: 540px;
+      font-size: 1.1rem;
+      color: var(--green-pale);
+      line-height: 1.8;
+    }
+
+    .hero-cta {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: var(--green-light);
+      color: var(--green-dark);
+      padding: 0.85rem 2.2rem;
+      border: none;
+      border-radius: 40px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-pale);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--green-pale);
+      padding: 0.85rem 2.2rem;
+      border: 2px solid var(--green-light);
+      border-radius: 40px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(82, 183, 136, 0.1);
+    }
+
+    /* STATS */
+    .stats {
+      background: var(--green-dark);
+      padding: 3rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2.5rem;
+      color: var(--green-light);
+    }
+
+    .stat span {
+      font-size: 0.9rem;
+      color: var(--green-pale);
+      letter-spacing: 1px;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      color: var(--green-mid);
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: var(--green-dark);
+      max-width: 600px;
+      margin: 0 auto 1rem;
+      line-height: 1.3;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #555;
+      max-width: 540px;
+      margin: 0 auto 3rem;
+      line-height: 1.8;
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+
+    .card-img.floresta  { background: linear-gradient(135deg, #1a5c35, #3a9e6a); }
+    .card-img.oceano    { background: linear-gradient(135deg, #1a5074, #2e9ec1); }
+    .card-img.montanha  { background: linear-gradient(135deg, #4a4060, #8a7aac); }
+    .card-img.deserto   { background: linear-gradient(135deg, #a0642a, #e0a060); }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .card-body h3 {
+      font-size: 1.2rem;
+      color: var(--green-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-body p {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* QUOTE */
+    .quote-section {
+      background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+
+    .quote-section blockquote {
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      color: var(--white);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    .quote-section cite {
+      display: block;
+      margin-top: 1.5rem;
+      color: var(--green-light);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      font-style: normal;
+    }
+
+    /* PILLARS */
+    .pillars {
+      background: #f0faf4;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .pillar {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .pillar-icon {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .pillar h3 {
+      font-size: 1.1rem;
+      color: var(--green-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .pillar p {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    /* CTA FINAL */
+    .cta-section {
+      background: var(--green-dark);
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      color: var(--green-pale);
+      margin-bottom: 2rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0d1f16;
+      color: var(--green-pale);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+    }
+
+    footer span {
+      color: var(--green-light);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">🌿 NaturezaViva</div>
+    <ul>
+      <li><a href="#ecossistemas">Ecossistemas</a></li>
+      <li><a href="#pilares">Pilares</a></li>
+      <li><a href="#acao">Ação</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-tag">Preserve · Conecte · Renove</p>
+    <h1>A natureza é o lar<br />de <span>todos nós</span></h1>
+    <p>
+      Cada floresta, oceano e montanha carrega uma história de milhões de anos.
+      Descubra a beleza do mundo natural e o que podemos fazer para protegê-lo.
+    </p>
+    <div class="hero-cta">
+      <a href="#ecossistemas" class="btn-primary">Explorar</a>
+      <a href="#acao" class="btn-outline">Como ajudar</a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <strong>8,7M</strong>
+      <span>Espécies na Terra</span>
+    </div>
+    <div class="stat">
+      <strong>71%</strong>
+      <span>Da Terra coberta por água</span>
+    </div>
+    <div class="stat">
+      <strong>3T</strong>
+      <span>Árvores no planeta</span>
+    </div>
+    <div class="stat">
+      <strong>1M+</strong>
+      <span>Espécies ameaçadas</span>
+    </div>
+  </div>
+
+  <!-- ECOSSISTEMAS -->
+  <section id="ecossistemas">
+    <p class="section-label">Ecossistemas</p>
+    <h2 class="section-title">Mundos dentro do nosso mundo</h2>
+    <p class="section-subtitle">
+      A Terra abriga ecossistemas incríveis, cada um com sua própria teia de vida, clima e equilíbrio único.
+    </p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-img floresta">🌳</div>
+        <div class="card-body">
+          <h3>Florestas Tropicais</h3>
+          <p>Cobrem apenas 6% da Terra, mas abrigam mais da metade de todas as espécies do planeta. A Amazônia sozinha regula o clima de toda a América do Sul.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img oceano">🌊</div>
+        <div class="card-body">
+          <h3>Oceanos</h3>
+          <p>Produzem 50% do oxigênio que respiramos e regulam a temperatura global. São o maior ecossistema da Terra e ainda largamente inexplorado.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img montanha">⛰️</div>
+        <div class="card-body">
+          <h3>Montanhas</h3>
+          <p>Atuam como caixas d'água naturais, abastecendo rios que alimentam bilhões de pessoas. Hospedam espécies adaptadas a condições extremas.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img deserto">🏜️</div>
+        <div class="card-body">
+          <h3>Desertos</h3>
+          <p>Longe de serem vazios, os desertos são ricos em vida adaptada à escassez de água. Cobrem um terço da superfície terrestre.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <div class="quote-section">
+    <blockquote>
+      "A Terra não nos pertence. Nós pertencemos à Terra. Somos parte de uma teia de vida
+      que existe há bilhões de anos — e da qual dependemos para sobreviver."
+    </blockquote>
+    <cite>— Chief Seattle, 1854</cite>
+  </div>
+
+  <!-- PILARES -->
+  <section id="pilares" class="pillars">
+    <p class="section-label">Pilares</p>
+    <h2 class="section-title">Por que proteger a natureza</h2>
+    <p class="section-subtitle">A natureza não é apenas bela — ela é essencial para a nossa sobrevivência.</p>
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="pillar-icon">💧</div>
+        <h3>Água Limpa</h3>
+        <p>Florestas e wetlands filtram naturalmente a água que bebemos, mantendo rios e aquíferos saudáveis.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🌬️</div>
+        <h3>Ar Puro</h3>
+        <p>Plantas e oceanos absorvem CO₂ e liberam oxigênio, regulando a composição da atmosfera.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🌱</div>
+        <h3>Solo Fértil</h3>
+        <p>Ecossistemas saudáveis mantêm solos ricos que sustentam a agricultura e a produção de alimentos.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🧬</div>
+        <h3>Biodiversidade</h3>
+        <p>Cada espécie tem um papel no equilíbrio. A perda de uma pode desencadear colapsos em cadeia.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🌡️</div>
+        <h3>Clima Estável</h3>
+        <p>Florestas e oceanos são os maiores reguladores climáticos do planeta, absorvendo calor e carbono.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🏥</div>
+        <h3>Medicina Natural</h3>
+        <p>Mais de 50% dos medicamentos modernos têm origem em compostos descobertos na natureza.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="acao" class="cta-section">
+    <h2>Seja parte da mudança</h2>
+    <p>
+      Pequenas ações, quando multiplicadas por milhões de pessoas, transformam o mundo.
+      Comece hoje a fazer a diferença pela natureza.
+    </p>
+    <a href="#" class="btn-primary">Quero me engajar</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Feito com <span>❤️</span> pela natureza · NaturezaViva © 2026</p>
+  </footer>
+
+</body>
+</html>
