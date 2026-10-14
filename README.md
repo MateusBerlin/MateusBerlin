@@ -1,12 +1,12 @@
 <div align="center">
 
-# 🧾 Codes Claudius
+# 🧾 Mateus
 
 *Curiosidades, testes e experimentos de um tributarista que ama tecnologia*
 
 ![Status](https://img.shields.io/badge/status-hobby-8A2BE2)
-![Curiosidade](https://img.shields.io/badge/curiosidade-100%25-orange)
-![Programação](https://img.shields.io/badge/programação-em%20aprendizado-lightgrey)
+![Caçando Problema](https://img.shields.io/badge/curiosidade-100%25-orange)
+![Programação](https://img.shields.io/badge/programação-em%0aprendizado-lightgrey)
 
 </div>
 
@@ -14,7 +14,7 @@
 
 ## 👋 Quem está por trás
 
-Sou **tributarista** de profissão e entusiasta de tecnologia por hobby. Não tenho formação em programação e não trabalho com nenhuma linguagem. Sou apenas curioso: gosto de entender como as coisas funcionam por dentro e de ver a tecnologia tocando em áreas que parecem distantes, como a tributação.
+Sou **tributarista** de profissão e entusiasta de tecnologia por hobby. Não tenho formação em programação e não trabalho com nenhuma linguagem. Sou apenas curioso: gosto de entender como as coisas funcionam por dentro e de ver a tecnologia tocando em áreas que parecem distantes.
 
 Este projeto é um espaço sem pressão. Aqui eu brinco, tento, erro e aprendo um pouco mais a cada vez.
 
@@ -23,7 +23,7 @@ Este projeto é um espaço sem pressão. Aqui eu brinco, tento, erro e aprendo u
 | Tema | Por que me pega |
 | --- | --- |
 | ⚖️ **Tributos e tecnologia** | Como sistemas, notas fiscais e obrigações acessórias conversam entre si e onde a automação faz diferença |
-| 🔍 **Curiosidade geral** | Entender conceitos novos, mesmo sem aplicá-los no trabalho |
+| 🔍 **Curiosidade** | Entender conceitos novos, mesmo sem aplicá-los no trabalho |
 | 🧪 **Experimentar sem compromisso** | Montar algo pequeno só para ver se funciona |
 
 ## 📂 O que tem por aqui
