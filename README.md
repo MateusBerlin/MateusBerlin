@@ -6,7 +6,7 @@
 
 ![Status](https://img.shields.io/badge/status-hobby-8A2BE2)
 ![Caçando Problema](https://img.shields.io/badge/curiosidade-100%25-orange)
-![Programação](https://img.shields.io/badge/programação-em%0aprendizado-lightgrey)
+![Programação](https://img.shields.io/badge/programação-em%0%aprendizado-lightgrey)
 
 </div>
 
@@ -25,11 +25,6 @@ Este projeto é um espaço sem pressão. Aqui eu brinco, tento, erro e aprendo u
 | ⚖️ **Tributos e tecnologia** | Como sistemas, notas fiscais e obrigações acessórias conversam entre si e onde a automação faz diferença |
 | 🔍 **Curiosidade** | Entender conceitos novos, mesmo sem aplicá-los no trabalho |
 | 🧪 **Experimentar sem compromisso** | Montar algo pequeno só para ver se funciona |
-
-## 📂 O que tem por aqui
-
-- 🌿 [`natureza.html`](natureza.html): uma página de teste, feita para ver como uma landing page ganha forma.
-- 🧩 [`kickbacks.vsix`](kickbacks.vsix): uma extensão do VS Code que peguei para explorar como esse tipo de ferramenta é empacotado.
 
 ## 🌱 Estou aprendendo
 
