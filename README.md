@@ -4,10 +4,6 @@
 
 *Curiosidades, testes e experimentos de um tributarista que ama tecnologia*
 
-![Status](https://img.shields.io/badge/status-hobby-8A2BE2)
-![Caçando Problema](https://img.shields.io/badge/curiosidade-100%25-orange)
-![Programação](https://img.shields.io/badge/programação-em%0%aprendizado-lightgrey)
-
 </div>
 
 ---
